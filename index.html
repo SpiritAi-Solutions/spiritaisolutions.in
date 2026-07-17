@@ -1,0 +1,1841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Official training and skill development portal for SPIRIT AI SOLUTIONS PRIVATE LIMITED. Discover practical AI, machine learning, and deep learning training programs, workshops, and internships.">
+  <title>SPIRIT AI SOLUTIONS | AI Training, Internships & Skill Development</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    /* CSS Custom Properties / Design Tokens */
+    :root {
+      --bg-primary: #ffffff;
+      --bg-secondary: #f8fafc;
+      --bg-tertiary: #f1f5f9;
+      --text-primary: #0f172a;
+      --text-secondary: #334155;
+      --text-muted: #64748b;
+      --accent: #0284c7; /* Brand blue/sky color matching the logo icon */
+      --accent-hover: #0369a1;
+      --accent-light: #f0f9ff;
+      --border-color: #e2e8f0;
+      --border-focus: #0284c7;
+      --success: #16a34a;
+      --card-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.05), 0 2px 4px -2px rgba(15, 23, 42, 0.05);
+      --card-shadow-hover: 0 10px 15px -3px rgba(15, 23, 42, 0.08), 0 4px 6px -4px rgba(15, 23, 42, 0.08);
+      --font-family: 'Outfit', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --max-width: 1200px;
+      --header-height: 90px;
+    }
+
+    /* Reset & Base Styles */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: var(--font-family);
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    button, input, select, textarea {
+      font-family: inherit;
+      font-size: 1rem;
+    }
+
+    /* Global Container */
+    .container {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 1.25rem;
+      }
+    }
+
+    /* Typography */
+    h1, h2, h3, h4 {
+      font-weight: 700;
+      line-height: 1.25;
+      color: var(--text-primary);
+    }
+
+    h1 {
+      font-size: 2.75rem;
+      letter-spacing: -0.02em;
+    }
+
+    h2 {
+      font-size: 2.25rem;
+      letter-spacing: -0.01em;
+      position: relative;
+      padding-bottom: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 50px;
+      height: 4px;
+      background-color: var(--accent);
+      border-radius: 2px;
+    }
+
+    h3 {
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+
+    p {
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    .text-center h2::after {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    /* Sticky Header */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: var(--header-height);
+      background-color: var(--bg-primary);
+      border-bottom: 1px solid var(--border-color);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+
+    .logo-link {
+      display: flex;
+      align-items: center;
+      background-color: #ffffff; /* Explicit white background for logo */
+      padding: 6px 12px;
+      border-radius: 6px;
+    }
+
+    .logo-img {
+      height: 68px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 1.75rem;
+    }
+
+    .nav-links a {
+      font-weight: 500;
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      padding: 0.5rem 0;
+      position: relative;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: var(--accent);
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.25s ease;
+    }
+
+    .nav-links a:hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.65rem 1.25rem;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: all 0.2s ease;
+      min-height: 44px;
+    }
+
+    .nav-cta-primary {
+      background-color: var(--accent);
+      color: #ffffff;
+    }
+
+    .nav-cta-primary:hover {
+      background-color: var(--accent-hover);
+    }
+
+    /* Mobile Nav Toggle */
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+      color: var(--text-primary);
+    }
+
+    .menu-toggle svg {
+      width: 28px;
+      height: 28px;
+    }
+
+    /* Responsive Header & Navigation */
+    @media (max-width: 992px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      nav {
+        position: absolute;
+        top: var(--header-height);
+        left: 0;
+        width: 100%;
+        background-color: var(--bg-primary);
+        border-bottom: 1px solid var(--border-color);
+        flex-direction: column;
+        padding: 2rem 1.5rem;
+        gap: 1.5rem;
+        align-items: stretch;
+        display: none;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      .nav-links {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+      }
+
+      .nav-links a {
+        display: block;
+        font-size: 1.1rem;
+      }
+
+      .nav-cta {
+        width: 100%;
+        text-align: center;
+      }
+    }
+
+    /* Main Sections Layout */
+    main {
+      margin-top: var(--header-height);
+    }
+
+    section {
+      padding: 6rem 0;
+    }
+
+    .section-light {
+      background-color: var(--bg-primary);
+    }
+
+    .section-tint {
+      background-color: var(--bg-secondary);
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.85rem 1.75rem;
+      border-radius: 6px;
+      font-weight: 600;
+      text-align: center;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      min-height: 48px;
+      border: 1px solid transparent;
+    }
+
+    .btn-primary {
+      background-color: var(--accent);
+      color: #ffffff;
+    }
+
+    .btn-primary:hover {
+      background-color: var(--accent-hover);
+    }
+
+    .btn-secondary {
+      background-color: transparent;
+      color: var(--text-primary);
+      border-color: var(--border-color);
+    }
+
+    .btn-secondary:hover {
+      background-color: var(--bg-tertiary);
+      border-color: var(--text-muted);
+    }
+
+    /* Hero Section */
+    .hero-wrapper {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .hero-content h1 {
+      margin-bottom: 1.5rem;
+      color: var(--text-primary);
+    }
+
+    .hero-content p {
+      font-size: 1.2rem;
+      color: var(--text-secondary);
+      margin-bottom: 2.5rem;
+      font-weight: 400;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .hero-visual {
+      background-color: var(--accent-light);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 2.5rem;
+      position: relative;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      padding: 0.4rem 0.8rem;
+      background-color: #e0f2fe;
+      color: var(--accent);
+      border-radius: 20px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      border: 1px solid rgba(2, 132, 199, 0.1);
+    }
+
+    .hero-highlight-card {
+      background-color: #ffffff;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: var(--card-shadow);
+      border-left: 4px solid var(--accent);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-highlight-card h4 {
+      font-size: 1.1rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .hero-highlight-card p {
+      font-size: 0.9rem;
+      margin-bottom: 0;
+      color: var(--text-muted);
+    }
+
+    @media (max-width: 992px) {
+      .hero-wrapper {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        text-align: center;
+      }
+
+      .hero-actions {
+        justify-content: center;
+      }
+
+      .hero-visual {
+        max-width: 500px;
+        margin: 0 auto;
+        text-align: left;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-actions {
+        flex-direction: column;
+      }
+      .btn {
+        width: 100%;
+      }
+    }
+
+    /* About Section */
+    .about-container {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .about-container p {
+      font-size: 1.125rem;
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+      line-height: 1.75;
+    }
+
+    /* Who Can Join Section */
+    .audience-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .audience-card {
+      background-color: var(--bg-primary);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      transition: all 0.3s ease;
+      box-shadow: var(--card-shadow);
+    }
+
+    .audience-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--card-shadow-hover);
+      border-color: var(--accent);
+    }
+
+    .audience-icon {
+      width: 54px;
+      height: 54px;
+      background-color: var(--accent-light);
+      color: var(--accent);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.25rem;
+      font-size: 1.5rem;
+    }
+
+    .audience-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .audience-card p {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      margin-bottom: 0;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 992px) {
+      .audience-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 576px) {
+      .audience-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Programs Section */
+    .programs-intro {
+      max-width: 700px;
+      margin: 0 auto 3rem;
+    }
+
+    .programs-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .program-card {
+      background-color: var(--bg-primary);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 2.25rem;
+      transition: all 0.3s ease;
+      box-shadow: var(--card-shadow);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .program-card:hover {
+      box-shadow: var(--card-shadow-hover);
+      border-color: var(--accent);
+      transform: translateY(-4px);
+    }
+
+    .program-tag {
+      align-self: flex-start;
+      padding: 0.25rem 0.6rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--accent);
+      background-color: var(--accent-light);
+      border-radius: 4px;
+      margin-bottom: 1.25rem;
+      border: 1px solid rgba(2, 132, 199, 0.1);
+    }
+
+    .program-card h3 {
+      font-size: 1.35rem;
+      margin-bottom: 1rem;
+    }
+
+    .program-card p {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      flex-grow: 1;
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .program-features {
+      list-style: none;
+      border-top: 1px solid var(--border-color);
+      padding-top: 1.25rem;
+    }
+
+    .program-features li {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .program-features li::before {
+      content: '✓';
+      color: var(--accent);
+      font-weight: bold;
+    }
+
+    @media (max-width: 992px) {
+      .programs-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .programs-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Learning Methodology Section */
+    .methodology-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .methodology-card {
+      background-color: var(--bg-secondary);
+      border-top: 4px solid var(--accent);
+      border-radius: 0 0 8px 8px;
+      padding: 2rem 1.5rem;
+      box-shadow: var(--card-shadow);
+    }
+
+    .methodology-step {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+    }
+
+    .methodology-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .methodology-card p {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      margin-bottom: 0;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 992px) {
+      .methodology-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 576px) {
+      .methodology-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Academic Collaboration Section */
+    .collaboration-wrapper {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .collab-proposal-doc {
+      background-color: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      box-shadow: var(--card-shadow-hover);
+      padding: 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .collab-proposal-doc::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 6px;
+      background-color: var(--accent);
+    }
+
+    .collab-header {
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .collab-org {
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: 0.05em;
+      color: var(--text-primary);
+    }
+
+    .collab-title {
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-top: 0.5rem;
+      color: var(--accent);
+    }
+
+    .collab-body p {
+      font-size: 0.9rem;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+      color: var(--text-secondary);
+    }
+
+    .collab-footer {
+      margin-top: 2rem;
+      border-top: 1px solid var(--border-color);
+      padding-top: 1rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .collab-highlight-list {
+      list-style: none;
+      margin-top: 1.5rem;
+    }
+
+    .collab-highlight-list li {
+      margin-bottom: 1rem;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    .collab-check-icon {
+      flex-shrink: 0;
+      width: 24px;
+      height: 24px;
+      background-color: #dcfce7;
+      color: var(--success);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      font-weight: bold;
+    }
+
+    .collab-text h4 {
+      font-size: 1.05rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .collab-text p {
+      font-size: 0.9rem;
+      margin-bottom: 0;
+      color: var(--text-secondary);
+    }
+
+    @media (max-width: 992px) {
+      .collaboration-wrapper {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+      .collab-proposal-doc {
+        padding: 2rem;
+      }
+    }
+
+    /* Registration Form Section */
+    .register-wrapper {
+      max-width: 680px;
+      margin: 0 auto;
+      background-color: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 3rem;
+      box-shadow: var(--card-shadow);
+    }
+
+    @media (max-width: 576px) {
+      .register-wrapper {
+        padding: 1.75rem;
+      }
+    }
+
+    .register-disclaimer {
+      background-color: var(--accent-light);
+      border-left: 4px solid var(--accent);
+      padding: 1rem 1.25rem;
+      border-radius: 0 6px 6px 0;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      color: var(--text-secondary);
+      margin-bottom: 2rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+      color: var(--text-primary);
+      font-size: 0.95rem;
+    }
+
+    .form-control {
+      width: 100%;
+      min-height: 48px;
+      padding: 0.75rem 1rem;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      background-color: #ffffff;
+      color: var(--text-primary);
+      transition: all 0.2s ease;
+      font-size: 1rem;
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--border-focus);
+      box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
+    }
+
+    textarea.form-control {
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    /* Consent Checkboxes */
+    .consent-group {
+      margin-top: 1.75rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .checkbox-container {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+      cursor: pointer;
+    }
+
+    .checkbox-container input[type="checkbox"] {
+      margin-top: 0.25rem;
+      width: 18px;
+      height: 18px;
+      accent-color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .checkbox-label {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      line-height: 1.4;
+      user-select: none;
+    }
+
+    .checkbox-label a {
+      color: var(--accent);
+      font-weight: 500;
+      text-decoration: underline;
+    }
+
+    .checkbox-label a:hover {
+      color: var(--accent-hover);
+    }
+
+    .btn-submit {
+      width: 100%;
+      min-height: 50px;
+      font-size: 1.05rem;
+    }
+
+    .form-notice {
+      text-align: center;
+      margin-top: 1rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* Trust Points Grid */
+    .trust-points-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-top: 2rem;
+      border-top: 1px solid var(--border-color);
+      padding-top: 2rem;
+    }
+
+    .trust-point {
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-start;
+    }
+
+    .trust-point-icon {
+      color: var(--accent);
+      font-size: 1.1rem;
+      font-weight: bold;
+    }
+
+    .trust-point text {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.4;
+    }
+
+    @media (max-width: 576px) {
+      .trust-points-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+    }
+
+    /* Contact Section */
+    .contact-wrapper {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 4rem;
+    }
+
+    .contact-details {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .contact-info-list {
+      list-style: none;
+      margin-top: 2rem;
+    }
+
+    .contact-info-item {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      align-items: flex-start;
+    }
+
+    .contact-info-icon {
+      width: 44px;
+      height: 44px;
+      background-color: var(--accent-light);
+      color: var(--accent);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .contact-info-text h4 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .contact-info-text p {
+      font-size: 1.05rem;
+      color: var(--text-primary);
+      margin-bottom: 0;
+      font-weight: 500;
+    }
+
+    .contact-info-text a {
+      color: var(--accent);
+    }
+
+    .contact-info-text a:hover {
+      color: var(--accent-hover);
+      text-decoration: underline;
+    }
+
+    /* Map / Visual Placement */
+    .map-placeholder {
+      background-color: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      height: 350px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .map-placeholder-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.07;
+      background-image: radial-gradient(var(--text-muted) 1px, transparent 0);
+      background-size: 24px 24px;
+    }
+
+    .map-marker {
+      width: 48px;
+      height: 48px;
+      background-color: #ef4444;
+      border-radius: 50% 50% 50% 0;
+      transform: rotate(-45deg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 4px 10px rgba(239, 68, 68, 0.3);
+      position: relative;
+      z-index: 2;
+    }
+
+    .map-marker::after {
+      content: '';
+      width: 18px;
+      height: 18px;
+      background-color: #ffffff;
+      border-radius: 50%;
+      transform: rotate(45deg);
+    }
+
+    .map-placeholder h3 {
+      position: relative;
+      z-index: 2;
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .map-placeholder p {
+      position: relative;
+      z-index: 2;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      max-width: 320px;
+      margin-bottom: 1.5rem;
+    }
+
+    .map-link-btn {
+      position: relative;
+      z-index: 2;
+    }
+
+    @media (max-width: 768px) {
+      .contact-wrapper {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+      .map-placeholder {
+        height: 280px;
+      }
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--text-primary);
+      color: #ffffff;
+      padding: 4rem 0 2rem;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 4rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid #334155;
+    }
+
+    .footer-brand h3 {
+      color: #ffffff;
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+    }
+
+    .footer-brand p {
+      color: #94a3b8;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      max-width: 320px;
+    }
+
+    .footer-logo-img {
+      height: 60px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .footer-links-col h4 {
+      color: #ffffff;
+      font-size: 1rem;
+      margin-bottom: 1.25rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .footer-links-list {
+      list-style: none;
+    }
+
+    .footer-links-list li {
+      margin-bottom: 0.75rem;
+    }
+
+    .footer-links-list a, .footer-modal-trigger {
+      color: #94a3b8;
+      font-size: 0.9rem;
+      transition: color 0.2s ease;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 0;
+      text-align: left;
+    }
+
+    .footer-links-list a:hover, .footer-modal-trigger:hover {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+
+    .footer-bottom {
+      padding-top: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 0.85rem;
+      color: #94a3b8;
+    }
+
+    .footer-bottom p {
+      margin-bottom: 0;
+    }
+
+    @media (max-width: 768px) {
+      .footer-top {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    /* Native Dialog / Modal Styles */
+    dialog {
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 0;
+      max-width: 600px;
+      width: 90%;
+      margin: auto;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+      background-color: var(--bg-primary);
+    }
+
+    dialog::backdrop {
+      background-color: rgba(15, 23, 42, 0.6);
+      backdrop-filter: blur(4px);
+    }
+
+    .dialog-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .dialog-header h3 {
+      font-size: 1.35rem;
+      margin: 0;
+    }
+
+    .close-dialog {
+      background: none;
+      border: none;
+      font-size: 1.75rem;
+      color: var(--text-muted);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.25rem;
+      line-height: 1;
+    }
+
+    .close-dialog:hover {
+      color: var(--text-primary);
+    }
+
+    .dialog-body {
+      padding: 2rem;
+      max-height: 60vh;
+      overflow-y: auto;
+    }
+
+    .dialog-body h4 {
+      font-size: 1.05rem;
+      margin: 1.5rem 0 0.5rem;
+    }
+
+    .dialog-body h4:first-of-type {
+      margin-top: 0;
+    }
+
+    .dialog-body p {
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+    }
+
+    .dialog-body ul {
+      margin-bottom: 1rem;
+      padding-left: 1.25rem;
+    }
+
+    .dialog-body li {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      margin-bottom: 0.5rem;
+    }
+
+    .unsubscribe-form {
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sticky Header -->
+  <header>
+    <div class="container nav-container">
+      <a href="#" class="logo-link" aria-label="Spirit AI Solutions Home">
+        <img src="SpiritAi main white.png" alt="SPIRIT AI SOLUTIONS logo" class="logo-img">
+      </a>
+      
+      <button class="menu-toggle" aria-expanded="false" aria-label="Toggle navigation menu">
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+        </svg>
+      </button>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#who-can-join">Who Can Join</a></li>
+          <li><a href="#programs">Programs</a></li>
+          <li><a href="#collaboration">Academic Collaboration</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <a href="#register" class="nav-cta nav-cta-primary">Register Interest</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="section-light">
+      <div class="container hero-wrapper">
+        <div class="hero-content">
+          <div class="hero-badge">AI Skill Development Initiative</div>
+          <h1>Practical, Industry-Aligned AI &amp; Machine Learning Training</h1>
+          <p>SPIRIT AI SOLUTIONS PRIVATE LIMITED provides structured, hands-on learning programs designed to bridge the gap between academic theory and industry applications.</p>
+          <div class="hero-actions">
+            <a href="#programs" class="btn btn-primary">Explore Programs</a>
+            <a href="#register" class="btn btn-secondary">Register Interest</a>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-highlight-card">
+            <h4>Practical Learning First</h4>
+            <p>Engage in hands-on labs, real-world datasets, and production deployment scenarios.</p>
+          </div>
+          <div class="hero-highlight-card" style="margin-bottom: 0;">
+            <h4>No Gimmicks, Just Skills</h4>
+            <p>Clean, transparent roadmap focusing strictly on competence and core technology.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section-tint">
+      <div class="container">
+        <div class="about-container">
+          <h2 class="text-center">About Our Mission</h2>
+          <p>At SPIRIT AI SOLUTIONS PRIVATE LIMITED, we believe that learning artificial intelligence should not be gatekept by abstract equations or hidden behind expensive, unverified courses. Our training mission is centered on <strong>clarity, transparency, and actionability</strong>.</p>
+          <p>We provide training programs that break down cutting-edge models into foundational components, enabling students and professionals to build, test, and deploy AI projects themselves. Led by experienced practitioners, we emphasize robust software development principles, real-world case studies, and clear conceptual understanding.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Who Can Join Section -->
+    <section id="who-can-join" class="section-light">
+      <div class="container">
+        <h2 class="text-center">Who Can Join</h2>
+        <p class="text-center" style="max-width: 600px; margin: 0 auto 3rem;">Our training paths are structured to accommodate different experience levels and career objectives, ensuring every participant finds a starting point.</p>
+        
+        <div class="audience-grid">
+          <div class="audience-card">
+            <div class="audience-icon">🎓</div>
+            <h3>Students &amp; Fresh Graduates</h3>
+            <p>Acquire industry-relevant project experience and technical skills that complement your college curriculum.</p>
+          </div>
+          <div class="audience-card">
+            <div class="audience-icon">💼</div>
+            <h3>Working Professionals</h3>
+            <p>Upskill in machine learning engineering, prompt engineering, and workflow automation to stay competitive.</p>
+          </div>
+          <div class="audience-card">
+            <div class="audience-icon">💡</div>
+            <h3>Entrepreneurs</h3>
+            <p>Learn to design, deploy, and scale AI-driven features and agentic workflows for your startup products.</p>
+          </div>
+          <div class="audience-card">
+            <div class="audience-icon">🔄</div>
+            <h3>Career Switchers</h3>
+            <p>Transition smoothly into technology roles with clear conceptual foundations and robust portfolio projects.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section id="programs" class="section-tint">
+      <div class="container">
+        <div class="text-center programs-intro">
+          <h2>Core Programs &amp; Study Areas</h2>
+          <p>Explore our targeted training paths. Each curriculum is designed around actionable skills, complete with dedicated project labs and review sessions.</p>
+        </div>
+
+        <div class="programs-grid">
+          <!-- Card 1 -->
+          <div class="program-card">
+            <div class="program-tag">Foundation</div>
+            <h3>AI Fundamentals and Concepts</h3>
+            <p>Build a solid grounding in mathematics, statistics, data preprocessing, and classical machine learning algorithms.</p>
+            <ul class="program-features">
+              <li>Supervised &amp; Unsupervised models</li>
+              <li>Python data stack (NumPy, Pandas)</li>
+              <li>Performance evaluation metrics</li>
+            </ul>
+          </div>
+          <!-- Card 2 -->
+          <div class="program-card">
+            <div class="program-tag">Generative AI</div>
+            <h3>Generative AI &amp; Prompt Engineering</h3>
+            <p>Master the principles of working with Large Language Models (LLMs). Learn styling, system framing, and contextual prompt engineering.</p>
+            <ul class="program-features">
+              <li>Context window optimization</li>
+              <li>Few-shot prompting techniques</li>
+              <li>LLM integration strategies</li>
+            </ul>
+          </div>
+          <!-- Card 3 -->
+          <div class="program-card">
+            <div class="program-tag">AI Agents</div>
+            <h3>Voice AI Agent Development</h3>
+            <p>Build state-of-the-art conversational voice systems that handle speech-to-text, context synthesis, and natural voice response.</p>
+            <ul class="program-features">
+              <li>STT &amp; TTS API pipelines</li>
+              <li>Latency reduction strategies</li>
+              <li>Real-time speech processing</li>
+            </ul>
+          </div>
+          <!-- Card 4 -->
+          <div class="program-card">
+            <div class="program-tag">Productivity</div>
+            <h3>Automation using No-Code &amp; Low-Code</h3>
+            <p>Design end-to-end automated workflows. Connect productivity tools, email databases, and APIs without writing complex code.</p>
+            <ul class="program-features">
+              <li>API triggers and webhook setup</li>
+              <li>Data sync across platforms</li>
+              <li>Workflow automation patterns</li>
+            </ul>
+          </div>
+          <!-- Card 5 -->
+          <div class="program-card">
+            <div class="program-tag">Conversational</div>
+            <h3>Chatbots &amp; Conversational AI</h3>
+            <p>Implement customer-facing text agents. Learn to build structured conversational flows, guardrails, and intent classifiers.</p>
+            <ul class="program-features">
+              <li>State machine conversation flow</li>
+              <li>External database integrations</li>
+              <li>System fallback logic</li>
+            </ul>
+          </div>
+          <!-- Card 6 -->
+          <div class="program-card">
+            <div class="program-tag">Deployment</div>
+            <h3>Real-world Project Implementation</h3>
+            <p>Learn how models transition from notebooks to production. Package models using APIs and deploy them to cloud platforms.</p>
+            <ul class="program-features">
+              <li>FastAPI endpoint construction</li>
+              <li>Containerization basics (Docker)</li>
+              <li>Cloud service deployment</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Learning Methodology Section -->
+    <section class="section-light">
+      <div class="container">
+        <h2 class="text-center">Learning Methodology</h2>
+        <p class="text-center" style="max-width: 600px; margin: 0 auto 3rem;">We reject passive video tutorials. Our teaching workflow guarantees active, constructivist engagement with code.</p>
+        
+        <div class="methodology-grid">
+          <div class="methodology-card">
+            <div class="methodology-step">Phase 1</div>
+            <h3>Live Instructor Sessions</h3>
+            <p>Interactive webinars led by industry engineers explaining architectural details and coding logic live.</p>
+          </div>
+          <div class="methodology-card">
+            <div class="methodology-step">Phase 2</div>
+            <h3>Hands-on Labs</h3>
+            <p>Immediate sandbox assignments where you construct algorithms, train models, and test deployments yourself.</p>
+          </div>
+          <div class="methodology-card">
+            <div class="methodology-step">Phase 3</div>
+            <h3>Industry Use-Cases</h3>
+            <p>Solve structured business tasks designed after production requirements in finance, health, and e-commerce.</p>
+          </div>
+          <div class="methodology-card">
+            <div class="methodology-step">Phase 4</div>
+            <h3>Mentorship &amp; Support</h3>
+            <p>Scheduled doubt-clearing sessions and portfolio reviews to refine code structure and deployment design.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Academic Collaboration Section -->
+    <section id="collaboration" class="section-tint">
+      <div class="container collaboration-wrapper">
+        <div class="collab-content">
+          <h2>Academic &amp; Institutional Collaboration</h2>
+          <p>SPIRIT AI SOLUTIONS PRIVATE LIMITED works closely with colleges, universities, and academic departments to integrate practical AI education into their curricula.</p>
+          <p>We provide comprehensive institutional training structures designed to coordinate with academic schedules, helping students earn practical internships, certifications, and career alignment.</p>
+          
+          <ul class="collab-highlight-list">
+            <li>
+              <div class="collab-check-icon">✓</div>
+              <div class="collab-text">
+                <h4>Flexible Training Models</h4>
+                <p>Curriculums mapped to academic timelines, offering structured 45-day intensive sessions.</p>
+              </div>
+            </li>
+            <li>
+              <div class="collab-check-icon">✓</div>
+              <div class="collab-text">
+                <h4>Internship Opportunities</h4>
+                <p>Eligible candidates get verified, project-focused internship certifications from our organization.</p>
+              </div>
+            </li>
+            <li>
+              <div class="collab-check-icon">✓</div>
+              <div class="collab-text">
+                <h4>Career Guidance</h4>
+                <p>Practical resume structuring, portfolio review, and preparation for technology interviews.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="collab-proposal-doc">
+          <div class="collab-header">
+            <span class="collab-org">SPIRIT AI SOLUTIONS PRIVATE LIMITED</span>
+            <div class="collab-title">Academic Partnership Proposal</div>
+          </div>
+          <div class="collab-body">
+            <p><strong>Subject:</strong> Proposal for Academic Collaboration — 45-Day Advanced Artificial Intelligence Training Program.</p>
+            <p>The program focuses on practical learning in Python, Machine Learning, Deep Learning, Computer Vision, Natural Language Processing, AI model deployment, and real-world projects.</p>
+            <p>Upon successful completion, participating students receive official internships, project certifications, and direct career guidance.</p>
+            <p style="font-style: italic; border-left: 2px solid var(--border-color); padding-left: 0.75rem; margin-top: 1rem;">"We kindly request approval to allow students to participate as part of training, internship, or skill development initiatives to foster mutually beneficial collaboration."</p>
+          </div>
+          <div class="collab-footer">
+            <span>R. Murali Krishna Yadav, Director</span>
+            <span>SPIRIT AI SOLUTIONS</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Registration / Interest Section -->
+    <section id="register" class="section-light">
+      <div class="container">
+        <div class="text-center" style="max-width: 600px; margin: 0 auto 3rem;">
+          <h2>Register Your Interest</h2>
+          <p>Join our upcoming cohorts, workshops, or academic training groups. Let us know your focus area, and we will get back to you with program timelines.</p>
+        </div>
+
+        <div class="register-wrapper">
+          <div class="register-disclaimer">
+            <strong>Voluntary Notice:</strong> Submit this form only if you want to receive updates about training programs, internships, workshops, and learning opportunities from Spirit AI Solutions.
+          </div>
+
+          <form action="#" method="POST" id="interestForm">
+            <div class="form-group">
+              <label for="fullName">Full Name</label>
+              <input type="text" id="fullName" name="fullName" class="form-control" placeholder="e.g., Jane Doe" required autocomplete="name">
+            </div>
+
+            <div class="form-group">
+              <label for="emailAddress">Email Address</label>
+              <input type="email" id="emailAddress" name="emailAddress" class="form-control" placeholder="e.g., jane.doe@example.com" required autocomplete="email">
+            </div>
+
+            <div class="form-group">
+              <label for="phoneNumber">Phone Number</label>
+              <input type="tel" id="phoneNumber" name="phoneNumber" class="form-control" placeholder="e.g., +91 98765 43210" required autocomplete="tel">
+            </div>
+
+            <div class="form-group">
+              <label for="orgName">College / Organization</label>
+              <input type="text" id="orgName" name="orgName" class="form-control" placeholder="e.g., University Name or Company Ltd." required>
+            </div>
+
+            <div class="form-group">
+              <label for="interestArea">Primary Area of Interest</label>
+              <select id="interestArea" name="interestArea" class="form-control" required>
+                <option value="" disabled selected>-- Select an area --</option>
+                <option value="fundamentals">AI Fundamentals &amp; Concepts</option>
+                <option value="generative">Generative AI Tools &amp; Prompt Engineering</option>
+                <option value="voice">Voice AI Agent Development</option>
+                <option value="automation">Automation using No-Code &amp; Low-Code</option>
+                <option value="chatbots">Chatbots &amp; Conversational AI</option>
+                <option value="deployment">Real-world Project Implementation &amp; Deployment</option>
+                <option value="academic">Academic Collaboration &amp; College Partnerships</option>
+              </select>
+            </div>
+
+            <div class="consent-group">
+              <label class="checkbox-container">
+                <input type="checkbox" id="updatesConsent" name="updatesConsent" required>
+                <span class="checkbox-label" for="updatesConsent">
+                  I agree to receive updates from Spirit AI Solutions related to training, internships, workshops, and learning opportunities.
+                </span>
+              </label>
+
+              <label class="checkbox-container">
+                <input type="checkbox" id="policyConsent" name="policyConsent" required>
+                <span class="checkbox-label" for="policyConsent">
+                  I have read the <a href="#" class="policy-link" data-modal="privacy">Privacy Policy</a> and <a href="#" class="policy-link" data-modal="terms">Terms and Conditions</a>.
+                </span>
+              </label>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-submit">Submit Registration</button>
+            <p class="form-notice">We value your privacy. You can unsubscribe or change your communication settings at any time.</p>
+          </form>
+
+          <div class="trust-points-grid">
+            <div class="trust-point">
+              <span class="trust-point-icon">🛡️</span>
+              <text>We contact only users who submit their information voluntarily and explicitly.</text>
+            </div>
+            <div class="trust-point">
+              <span class="trust-point-icon">✉️</span>
+              <text>We do not use purchased or third-party mailing lists. Your data is kept private.</text>
+            </div>
+            <div class="trust-point">
+              <span class="trust-point-icon">🔕</span>
+              <text>Users can unsubscribe from updates at any time via a link in our emails.</text>
+            </div>
+            <div class="trust-point">
+              <span class="trust-point-icon">🤝</span>
+              <text>We respect user privacy and strict communication preferences. No spam, ever.</text>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact & Map Section -->
+    <section id="contact" class="section-tint">
+      <div class="container contact-wrapper">
+        <div class="contact-details">
+          <h2>Get in Touch</h2>
+          <p>For inquiries regarding personal registration, cohort details, or institutional collaborations, reach out to our office team directly.</p>
+          
+          <ul class="contact-info-list">
+            <li class="contact-info-item">
+              <div class="contact-info-icon">📍</div>
+              <div class="contact-info-text">
+                <h4>Registered Office</h4>
+                <p>Spacion Towers, Vittal Rao Nagar, HITEC City, Hyderabad, 500081</p>
+              </div>
+            </li>
+            <li class="contact-info-item">
+              <div class="contact-info-icon">📞</div>
+              <div class="contact-info-text">
+                <h4>Contact Number</h4>
+                <p><a href="tel:+919652887425">+91 96528 87425</a></p>
+              </div>
+            </li>
+            <li class="contact-info-item">
+              <div class="contact-info-icon">✉️</div>
+              <div class="contact-info-text">
+                <h4>Official Email Address</h4>
+                <p><a href="mailto:careers@spiritaisolution.in">careers@spiritaisolution.in</a></p>
+              </div>
+            </li>
+            <li class="contact-info-item">
+              <div class="contact-info-icon">🏢</div>
+              <div class="contact-info-text">
+                <h4>Entity Identity</h4>
+                <p>SPIRIT AI SOLUTIONS PRIVATE LIMITED</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="map-placeholder">
+          <div class="map-placeholder-bg"></div>
+          <div class="map-marker"></div>
+          <h3>Spacion Towers</h3>
+          <p>Vittal Rao Nagar, HITEC City, Hyderabad, Telangana, 500081</p>
+          <a href="https://maps.google.com/?q=Spacion+Towers+HITEC+City+Hyderabad" target="_blank" rel="noopener noreferrer" class="btn btn-secondary map-link-btn">
+            View on Google Maps
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <img src="SpiritAi logo.png" alt="SPIRIT AI SOLUTIONS logo" class="footer-logo-img">
+          <p style="margin-top: 1.25rem;">Practical AI training and industry-skilling programs. Transparent education structured for immediate impact.</p>
+        </div>
+        <div class="footer-links-col">
+          <h4>Training Info</h4>
+          <ul class="footer-links-list">
+            <li><a href="#about">About Mission</a></li>
+            <li><a href="#who-can-join">Who Can Join</a></li>
+            <li><a href="#programs">Explore Programs</a></li>
+            <li><a href="#collaboration">Academic Partnership</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-col">
+          <h4>Privacy &amp; Terms</h4>
+          <ul class="footer-links-list">
+            <li><button class="footer-modal-trigger" data-modal="privacy">Privacy Policy</button></li>
+            <li><button class="footer-modal-trigger" data-modal="terms">Terms &amp; Conditions</button></li>
+            <li><button class="footer-modal-trigger" data-modal="unsubscribe">Unsubscribe / Preferences</button></li>
+            <li><a href="#contact">Contact Support</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2026 SPIRIT AI SOLUTIONS PRIVATE LIMITED. All rights reserved.</p>
+        <p>Location: Hyderabad, India</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Privacy Policy Modal -->
+  <dialog id="privacyDialog">
+    <div class="dialog-header">
+      <h3>Privacy Policy</h3>
+      <button class="close-dialog" aria-label="Close dialog">&times;</button>
+    </div>
+    <div class="dialog-body">
+      <h4>1. Voluntary Information Collection</h4>
+      <p>SPIRIT AI SOLUTIONS PRIVATE LIMITED only collects personal data (such as Name, Email, Phone, and College/Organization) submitted voluntarily by users through our registration or inquiry forms. We do not use web crawlers, third-party databases, or automated scraping methods to gather personal profiles.</p>
+      
+      <h4>2. Purpose of Data Use</h4>
+      <p>We use your information exclusively to:</p>
+      <ul>
+        <li>Send updates about training programs, workshops, and courses you selected interest in.</li>
+        <li>Coordinate academic training timelines and program prerequisites.</li>
+        <li>Issue certificates and verify internship participation details.</li>
+      </ul>
+
+      <h4>3. Absolute Data Protection</h4>
+      <p>We do not share, rent, trade, sell, or disclose your personal details to marketing networks or third-party advertisers. All collected data is processed securely and is only accessible by authorized training coordinators at Spirit AI Solutions.</p>
+
+      <h4>4. Simple Opt-Out Rights</h4>
+      <p>You can revoke your communication consent at any time. Simply click the "Unsubscribe" button in our emails or use our footer link to submit an opt-out request. All requests are processed within 48 business hours.</p>
+    </div>
+  </dialog>
+
+  <!-- Terms & Conditions Modal -->
+  <dialog id="termsDialog">
+    <div class="dialog-header">
+      <h3>Terms &amp; Conditions</h3>
+      <button class="close-dialog" aria-label="Close dialog">&times;</button>
+    </div>
+    <div class="dialog-body">
+      <h4>1. Agreement of Voluntary Interest</h4>
+      <p>By filling out the interest registration form, you request information regarding upcoming skill programs, academic collaborations, or training options. This action does not constitute a financial commitment, contract of service, or binding enrollment.</p>
+      
+      <h4>2. Academic Training Guidelines</h4>
+      <p>Our 45-day AI Training program requires active participation, regular attendance, and successful submission of projects to qualify for internship certifications and guidance services.</p>
+
+      <h4>3. Absolute Integrity of Claims</h4>
+      <p>We believe in high-quality, practical learning. We explicitly reject and do not promise "guaranteed immediate jobs," "guaranteed placements," or "immediate wealth" from completing our training programs. Skill acquisition depends entirely on the candidate's dedication, practice, and baseline knowledge.</p>
+
+      <h4>4. Limitation of Liability</h4>
+      <p>SPIRIT AI SOLUTIONS PRIVATE LIMITED provides educational material, sandbox environments, and instruction. We are not liable for individual employment decisions, project failures in production, or external service charges incurred during your projects.</p>
+    </div>
+  </dialog>
+
+  <!-- Unsubscribe / Preferences Modal -->
+  <dialog id="unsubscribeDialog">
+    <div class="dialog-header">
+      <h3>Email Preferences &amp; Opt-Out</h3>
+      <button class="close-dialog" aria-label="Close dialog">&times;</button>
+    </div>
+    <div class="dialog-body">
+      <p>If you no longer wish to receive updates from Spirit AI Solutions, please enter your registered email address below. We will remove you from all active communication directories.</p>
+      
+      <form class="unsubscribe-form" id="unsubForm">
+        <div class="form-group">
+          <label for="unsubEmail">Registered Email Address</label>
+          <input type="email" id="unsubEmail" class="form-control" placeholder="e.g., name@example.com" required>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width: 100%;">Opt-Out Immediately</button>
+      </form>
+      <div id="unsubSuccessMessage" style="display: none; margin-top: 1rem; color: var(--success); font-weight: 600; text-align: center;">
+        ✓ Your request has been recorded. You will be removed from our databases.
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Core Javascript Logic -->
+  <script>
+    // Mobile Navigation Toggle Logic
+    const menuToggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('nav');
+
+    menuToggle.addEventListener('click', () => {
+      const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+      menuToggle.setAttribute('aria-expanded', !isExpanded);
+      nav.classList.toggle('active');
+    });
+
+    // Close menu when clicking a link (on mobile)
+    const navLinks = document.querySelectorAll('.nav-links a, .nav-cta');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        nav.classList.remove('active');
+        menuToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // Native Dialog/Modal Controllers
+    const privacyDialog = document.getElementById('privacyDialog');
+    const termsDialog = document.getElementById('termsDialog');
+    const unsubscribeDialog = document.getElementById('unsubscribeDialog');
+
+    // Dialog opening mappings
+    const openModal = (type) => {
+      if (type === 'privacy') privacyDialog.showModal();
+      if (type === 'terms') termsDialog.showModal();
+      if (type === 'unsubscribe') {
+        document.getElementById('unsubSuccessMessage').style.display = 'none';
+        document.getElementById('unsubForm').reset();
+        unsubscribeDialog.showModal();
+      }
+    };
+
+    // Close all open dialogs
+    const closeDialogs = () => {
+      privacyDialog.close();
+      termsDialog.close();
+      unsubscribeDialog.close();
+    };
+
+    // Wire up triggers (links in form & links in footer)
+    document.querySelectorAll('.policy-link, .footer-modal-trigger').forEach(trigger => {
+      trigger.addEventListener('click', (e) => {
+        e.preventDefault();
+        const type = trigger.getAttribute('data-modal');
+        openModal(type);
+      });
+    });
+
+    // Wire up close buttons
+    document.querySelectorAll('.close-dialog').forEach(button => {
+      button.addEventListener('click', closeDialogs);
+    });
+
+    // Close dialog when clicking outside (on the backdrop)
+    [privacyDialog, termsDialog, unsubscribeDialog].forEach(dialog => {
+      dialog.addEventListener('click', (e) => {
+        const rect = dialog.getBoundingClientRect();
+        const isInDialog = (
+          rect.top <= e.clientY &&
+          e.clientY <= rect.top + rect.height &&
+          rect.left <= e.clientX &&
+          e.clientX <= rect.left + rect.width
+        );
+        if (!isInDialog) {
+          dialog.close();
+        }
+      });
+    });
+
+    // Interest Form Voluntary Interceptor
+    const interestForm = document.getElementById('interestForm');
+    interestForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      const fullName = document.getElementById('fullName').value;
+      const emailAddress = document.getElementById('emailAddress').value;
+      const phoneNumber = document.getElementById('phoneNumber').value;
+      const orgName = document.getElementById('orgName').value;
+      const interestArea = document.getElementById('interestArea').value;
+      
+      console.log('Registration submitted:', { fullName, emailAddress, phoneNumber, orgName, interestArea });
+      
+      alert(`Thank you, ${fullName}! Your registration of interest has been submitted voluntarily. We will send details to ${emailAddress} shortly.`);
+      interestForm.reset();
+    });
+
+    // Unsubscribe Form Interceptor
+    const unsubForm = document.getElementById('unsubForm');
+    unsubForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const unsubEmail = document.getElementById('unsubEmail').value;
+      console.log('Opt-out request submitted for:', unsubEmail);
+      
+      document.getElementById('unsubSuccessMessage').style.display = 'block';
+      setTimeout(() => {
+        closeDialogs();
+      }, 2500);
+    });
+  </script>
+</body>
+</html>
